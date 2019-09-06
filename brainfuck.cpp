@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <regex>
 
 using namespace std;
 
@@ -82,13 +83,29 @@ void sequence_execute(char instruction, VMachine *machine){
 
     break;
 
-
     case '.':
 
       putchar(machine->memory[addres]);
 
     break;
+
+    case ',':
+     
+      machine->memory[addres] = getchar();
   
+    break;
+
+    case '<':
+
+      machine->pointer--;
+
+    break;
+
+    case '>':
+
+      machine->pointer++;
+
+    break;
   }
 
 }
